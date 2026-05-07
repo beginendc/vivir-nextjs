@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: hsl(30 20% 7%);
+  --color-brand-gold: hsl(33 60% 55%);
+  --color-brand-secondary: hsl(30 20% 10%);
+  
+  --font-playfair: var(--font-playfair);
+  --font-dm-sans: var(--font-dm-sans);
+  
+  --animate-fade-up: fade-up 0.8s ease-out forwards;
+  
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+:root {
+  --background: hsl(30 20% 7%);
+  --foreground: hsl(0 0% 100%);
+  --brand-gold: hsl(33 60% 55%);
+  --brand-secondary: hsl(30 20% 10%);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, hsl(33 60% 55%) 0%, hsl(33 60% 75%) 50%, hsl(33 60% 55%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-bg-gradient {
+  background: linear-gradient(135deg, hsl(33 60% 45%) 0%, hsl(33 60% 55%) 100%);
+}
+
+.glass {
+  background: rgba(7, 6, 5, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 8rem 4rem;
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Custom components for editorial style */
+.editorial-title {
+  @apply text-4xl md:text-6xl lg:text-7xl font-playfair tracking-tight;
+}
+
+.editorial-subtitle {
+  @apply text-sm md:text-base uppercase tracking-[0.3em] text-brand-gold font-sans mb-4 inline-block;
+}
+
+.editorial-paragraph {
+  @apply text-lg md:text-xl text-white/70 leading-relaxed font-sans;
+}
